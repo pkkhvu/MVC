@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todos Items</h1>
+    <ul>
+        <% todos.forEach(element => { %>
+            <li class="todoItem" data-id="<%=element.id%>">
+                <span class="<%= element.completed === true ? 'completed' : 'not'%>"><%= element.todo %></span>
+                <span class="del">Delete</span>
+            </li>
+        <% }) %>
+    </ul>
+    <h2>
+        <form action="/todos/createTodo" method="POST">
+            <input type="text" placeholder="Enter an item you'd like to add as a 'todo'" name="todoItem">
+            <input type="submit">
+        </form>
+    </h2>
+    <script src="js/main.js"></script>
+</body>
+</html>
